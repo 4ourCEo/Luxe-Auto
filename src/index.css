@@ -9,6 +9,15 @@
   --color-gold: #D4AF37;
   --color-dark-bg: #0A0A0A;
   --color-card-bg: #141414;
+
+  @keyframes slow-zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+  }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s linear infinite alternate;
 }
 
 @layer base {

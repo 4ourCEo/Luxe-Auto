@@ -122,66 +122,79 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1603584173870-7f3ca99a4741?q=80&w=2070&auto=format&fit=crop" 
-          alt="Luxury car detailing" 
-          className="w-full h-full object-cover scale-105 animate-slow-zoom"
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" 
+          alt="Premium detailed car" 
+          className="w-full h-full object-cover animate-slow-zoom"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-2xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-3xl"
         >
-          <div className="flex items-center gap-2 mb-6">
-            <div className="h-[1px] w-12 bg-white/40" />
-            <span className="text-xs uppercase tracking-[0.3em] font-medium text-white/60">The Pinnacle of Automotive Care</span>
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-12 h-[1px] bg-white/30" />
+            <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-white/50">Mastering the Art of Preservation</span>
           </div>
-          <h1 className="text-6xl md:text-8xl font-serif font-bold leading-[0.9] mb-8 tracking-tighter">
-            Artistry in <br />
-            <span className="text-white/40 italic">Every Detail.</span>
+          
+          <h1 className="text-7xl md:text-9xl font-serif font-bold leading-[0.85] mb-10 tracking-tighter">
+            Elegance <br />
+            <span className="text-white/30 italic">Redefined.</span>
           </h1>
-          <p className="text-lg text-white/60 mb-10 max-w-lg leading-relaxed">
-            Experience a level of precision that transcends ordinary cleaning. We restore, protect, and elevate your vehicle to its absolute finest state.
+          
+          <p className="text-xl text-white/50 mb-12 max-w-xl leading-relaxed font-light">
+            LuxeAuto Detailing provides an uncompromising level of care for the world's most exceptional vehicles. We don't just clean; we restore your vehicle's soul.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          
+          <div className="flex flex-col sm:flex-row gap-6">
             <button 
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white text-black px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:scale-105 transition-transform group"
+              className="bg-white text-black px-10 py-5 rounded-full font-bold flex items-center justify-center gap-3 hover:bg-white/90 transition-all hover:scale-105 active:scale-95 group"
             >
-              View Packages <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Explore Services <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button 
-              onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
-              className="glass-panel px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-colors"
+              onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
+              className="glass-panel px-10 py-5 rounded-full font-bold hover:bg-white/10 transition-all hover:scale-105 active:scale-95"
             >
-              Our Process
+              Book Reservation
             </button>
           </div>
         </motion.div>
       </div>
 
+      {/* Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+      >
+        <span className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-bold">Scroll</span>
+        <div className="w-[1px] h-16 bg-gradient-to-b from-white/30 to-transparent" />
+      </motion.div>
+
       {/* Stats Overlay */}
-      <div className="absolute bottom-12 right-12 hidden lg:flex gap-12">
+      <div className="absolute bottom-12 right-12 hidden lg:flex gap-16">
         {[
           { label: 'Vehicles Perfected', value: '2,500+' },
           { label: 'Client Satisfaction', value: '100%' },
-          { label: 'Years Experience', value: '12' },
         ].map((stat, i) => (
           <motion.div 
             key={stat.label}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 + (i * 0.1) }}
-            className="flex flex-col"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1 + (i * 0.2) }}
+            className="flex flex-col items-end"
           >
-            <span className="text-3xl font-serif font-bold">{stat.value}</span>
-            <span className="text-[10px] uppercase tracking-widest text-white/40">{stat.label}</span>
+            <span className="text-4xl font-serif font-bold text-white/90">{stat.value}</span>
+            <span className="text-[9px] uppercase tracking-widest text-white/30 font-bold">{stat.label}</span>
           </motion.div>
         ))}
       </div>
